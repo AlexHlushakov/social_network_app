@@ -1,0 +1,54 @@
+.users {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+.user_item {
+    width: 280px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #000;
+}
+
+.user_item_block {
+    display: flex;
+    align-items: center;
+    align-self: start;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.user_name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.user_avatar_block {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+}
+
+.user_avatar_img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.user_following {
+    width: 150px;
+}
+
+.selectedPage {
+    font-weight: 900;
+}

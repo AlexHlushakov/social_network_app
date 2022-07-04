@@ -2,8 +2,8 @@ import {AuthAPI} from "../api/api";
 import { stopSubmit } from "redux-form";
 
 
-const SET_AUTH_USER = 'SET_AUTH_USER';
-    // TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
+const SET_AUTH_USER = 'social-network/auth/SET_AUTH_USER';
+
 
 let initialState = {
     authUserId: null,
@@ -25,12 +25,15 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
+//Action Creators
+
 export const setAuthUser = (authUserId, email, login, isAuth) => {
     return { type: SET_AUTH_USER, authData: { authUserId, email, login, isAuth } };
 }
 
-// export const toggleIsFetching = (isFetching) => {
-//     return { type: TOGGLE_IS_FETCHING, isFetching: isFetching };
+
+
+// Thunk creators
 
 export const loginUser = (email, password, rememberMe) => async (dispatch) => {
     let response = await AuthAPI.authLogin(email, password, rememberMe)
