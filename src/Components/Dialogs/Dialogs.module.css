@@ -1,0 +1,76 @@
+.dial {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    width: 100%;
+}
+
+.dial_items {
+    margin: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid #000;
+}
+
+.dial_item {
+    padding: 10px;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+
+.messages_page {
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    margin-left: 20px;
+}
+
+.messages {
+    max-height: 70vh;
+    overflow: scroll;
+    margin-top: 20px;
+    padding: 10px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.message {
+    padding: 10px;
+    font-size: 18px;
+}
+
+.new_message {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    bottom: 0;
+}
+
+.new_message_input {
+    width: 580px;
+    height: 36px;
+    color: #0b026a;
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+.new_message_btn {
+    width: 120px;
+    height: 40px;
+    background-color: rgb(7, 125, 215);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}

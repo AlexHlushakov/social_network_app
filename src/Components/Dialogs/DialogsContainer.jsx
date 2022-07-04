@@ -1,9 +1,47 @@
-import React from 'react';
+import { connect } from "react-redux";
+import { addMessage } from "../../redux/dialogsReducer";
+import {Link} from "react-router-dom";
+import styles from "./Dialogs.module.css";
+import Messages from "./Messages"
+import Login from "../Login/Login";
 
 
-const DialogsContainer =() =>{
-    return <div></div>
+const DialogItem = (props) => {
+    return (
+        <div className={styles.dial_item}>
+            <Link to={"/dialogs/" + props.id}>{props.name}</Link>
+        </div>
+    )
+}
+
+const Dialogs = (props) => {
+
+
+
+    if(props.isAuth){
+        return (
+            <div className={styles.dial}>
+                <div className={styles.dial_items}>
+                    {props.dialogsPage.dial_items.map(item => {
+                        return (<DialogItem name={item.name} id={item.id} key={item.id}></DialogItem>)
+                    })}
+                </div>
+                <Messages messages={props.dialogsPage.messages_list} postNewMessage={props.addMessage} />
+            </div>
+        )
+    } else {
+        return <Login/>
+    }
+
+
 }
 
 
-export  default DialogsContainer;
+let mapStateToProps = (state) => {
+    return {
+        dialogsPage: state.dialogsPage,
+        isAuth: state.auth.isAuth
+    }
+};
+
+export default connect(mapStateToProps, { addMessage })(Dialogs);

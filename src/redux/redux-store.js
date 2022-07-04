@@ -5,6 +5,7 @@ import appReducer from './appReducer';
 import { reducer as formReducer } from 'redux-form';
 import usersReducer from "./usersReducer";
 import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
 
 
 let reducers = combineReducers({
@@ -12,7 +13,8 @@ let reducers = combineReducers({
     form: formReducer,
     app: appReducer,
     usersPage: usersReducer,
-    profilePage: profileReducer
+    profilePage: profileReducer,
+    dialogsPage: dialogsReducer
 })
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));
