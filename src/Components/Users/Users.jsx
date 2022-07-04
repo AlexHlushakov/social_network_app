@@ -20,10 +20,9 @@ const Users = (props) => {
                                 <img src={user.photos.small != null ? user.photos.small : avatarPhoto} alt="user avatar" className={styles.user_avatar_img} />
                             </div>
                             <div className={styles.user_info}>
-                                <Link to={'/profile/' + user.id}>
+                                <Link to={'/profile/' + user.id} style={{textDecoration: "none", color: "black"}}>
                                     <span className={styles.user_name}>{user.name}</span>
                                 </Link>
-
                             </div>
                         </div>
                         <div>
