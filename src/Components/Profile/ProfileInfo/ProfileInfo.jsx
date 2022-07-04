@@ -77,10 +77,9 @@ const ProfileInfo = (props) => {
                 width: '100%',
                 maxWidth: 420
             }}>
-                {Object
-                    .keys(props.profile.contacts)
+                {Object.keys(props.profile.contacts)
                     .map((key)  => {
-                        return (<ListItem divider={true}>
+                        return (<ListItem key={key} divider={true}>
                             <ListItemText key={key} primary={key} secondary={props.profile.contacts[key] || "none"} />
                         </ListItem>)
                     })}
