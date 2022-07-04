@@ -1,0 +1,26 @@
+.nav {
+    grid-area: nav;
+    position: fixed;
+    background-color: #3d5a80;
+    margin-top: 60px;
+    height: 100%;
+    width: 15vw;
+    max-width: 160px;
+    padding: 20px;
+}
+
+.navlink {
+    display: block;
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.navlink:hover {
+    color: orange;
+}
+
+.nav div:last-child a {
+    padding-top: 15px;
+}
