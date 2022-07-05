@@ -108,7 +108,6 @@ export const getUserStatus = (userId) =>
     async (dispatch) => {
         let response = await ProfileAPI.getUserStatus(userId);
         dispatch(setUserStatus(response));
-        console.log(response);
     }
 
 export const getProfilePageInfo = (userId) => async (dispatch) => {

@@ -3,6 +3,7 @@ import Account from './Account';
 import {connect} from "react-redux";
 import {getProfilePageInfo, updateProfile} from "../../redux/profileReducer";
 import Login from "../Login/Login";
+import RefreshProfile from "../Profile/RefreshProfile";
 
 
 
@@ -13,13 +14,17 @@ class AccountContainer extends React.Component{
     }
 
 
+
     render() {
         if(this.props.isAuth){
-            return <Account profile={this.props.profile} updateProfile={this.props.updateProfile}/>
-        } return <Login/>
+            if(this.props.profile.userId !== this.props.authUserId){
+                return <RefreshProfile />
+            } else{
+                return <Account profile={this.props.profile} updateProfile={this.props.updateProfile}/>
+            }
+        } else{ return <Login/>}
     }
 }
-
 
 
 

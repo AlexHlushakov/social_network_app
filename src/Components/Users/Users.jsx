@@ -13,8 +13,8 @@ const Users = (props) => {
             <PaginatorControlled currentPage={props.currentPage} onPageChanged={props.onPageChanged}
                                  totalItemsCount={props.totalUsersCount} pageSize={props.pageSize}/>
             <div className={styles.users}>
-                {props.users.map(user => (
-                    <div className={styles.user_item}>
+                {props.users.map(user  => (
+                    <div key={user.id} className={styles.user_item}>
                         <div className={styles.user_item_block}>
                             <div className={styles.user_avatar_block}>
                                 <img src={user.photos.small != null ? user.photos.small : avatarPhoto} alt="user avatar" className={styles.user_avatar_img} />
