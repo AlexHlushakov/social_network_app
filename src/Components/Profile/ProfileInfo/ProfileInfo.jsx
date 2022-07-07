@@ -71,8 +71,8 @@ const ProfileInfo = (props) => {
             <List sx={{
                 display: "grid",
                 alignItems: "center",
-                gridTemplateColumns: "repeat(2, 200px)",
-                gridTemplateRows: "repeat(4, 60px)",
+                gridTemplateColumns: "repeat(2, 50%)",
+                gridTemplateRows: "repeat(4, 25%)",
                 gridColumnGap: "10px",
                 width: '100%',
                 maxWidth: 420
@@ -80,7 +80,7 @@ const ProfileInfo = (props) => {
                 {Object.keys(props.profile.contacts)
                     .map((key)  => {
                         return (<ListItem key={key} divider={true}>
-                            <ListItemText key={key} primary={key} secondary={props.profile.contacts[key] || "none"} />
+                            <ListItemText key={key} primary={key} secondary={props.profile.contacts[key] || "none"} sx={{maxWidth: "100%", overflow: "scroll"}}/>
                         </ListItem>)
                     })}
             </List>

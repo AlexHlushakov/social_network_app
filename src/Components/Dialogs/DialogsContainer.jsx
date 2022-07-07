@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import styles from "./Dialogs.module.css";
 import Messages from "./Messages"
 import Login from "../Login/Login";
+import MessageInput from "./MessageInput";
+import React from "react";
 
 
 const DialogItem = (props) => {
@@ -27,6 +29,7 @@ const Dialogs = (props) => {
                     })}
                 </div>
                 <Messages messages={props.dialogsPage.messages_list} postNewMessage={props.addMessage} />
+                <MessageInput postMessage={props.postNewMessage} />
             </div>
         )
     } else {

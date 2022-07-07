@@ -39,8 +39,7 @@ export const loginUser = (email, password, rememberMe) => async (dispatch) => {
     let response = await AuthAPI.authLogin(email, password, rememberMe)
 
     if (response.resultCode === 0) {
-        let promise = await dispatch(getAuthUserData());
-        if(promise){ return true}
+        dispatch(getAuthUserData());
     } else {
         let message = response.messages.length > 0 ? response.messages[0] : "Some error";
         dispatch(stopSubmit("login", { _error: message }));

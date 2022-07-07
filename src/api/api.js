@@ -9,6 +9,10 @@ const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/'
 })
 
+/*const telegram = axios.create({
+    baseURL: 'https://social-network.samuraijs.com/api/1.0/'
+})*/
+
 
 export const AuthAPI = {
     authMe() {
@@ -64,5 +68,11 @@ export const ProfileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         }).then(res => res.data);
+    }
+}
+
+export const FeedbackAPI ={
+    sendFeedback(token,chat_id, data){
+        return axios.post(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&parse_mode=html&text=${data}`)
     }
 }

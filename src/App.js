@@ -3,10 +3,11 @@ import './App.css'
 import Navbar from './Components/Navbar/Navbar';
 import HeaderContainer from './Components/Header/HeaderContainer'
 import Loader from './Components/common/Loader/Loader'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes} from 'react-router-dom'
 import { Provider, connect } from 'react-redux';
 import { initializeApp } from './redux/appReducer'
 import store from './redux/redux-store';
+import Welcome from "./Components/Welcome/Welcome";
 
 const ProfileContainer = lazy(() => import('./Components/Profile/ProfileContainer'));
 const AccountContainer = lazy(() => import('./Components/Account/AccountContainer'));
@@ -15,6 +16,7 @@ const DialogsContainer = lazy(() => import('./Components/Dialogs/DialogsContaine
 const UsersContainer = lazy(() => import('./Components/Users/UsersContainer'));
 const Login = lazy(() => import('./Components/Login/Login'));
 const InDev = lazy(() => import('./Components/common/InDev/InDev'));
+const Feedback = lazy(() => import('./Components/Feedback/Feedback'));
 
 
 class App extends React.Component {
@@ -34,9 +36,7 @@ class App extends React.Component {
           <div className="content">
             <Routes>
               <Route path="/" element={
-                <Suspense fallback={<Loader />}>
-                  <ProfileContainer/>
-                </Suspense>} />
+                  <Welcome/>}/>
               <Route path="/profile" element={
                 <Suspense fallback={<Loader />}>
                   <ProfileContainer/>
@@ -52,7 +52,7 @@ class App extends React.Component {
               <Route path="/account" element={<Suspense fallback={<Loader/>}><AccountContainer /></Suspense>} />
               <Route path="/users/*" element={<Suspense fallback={<Loader/>}><UsersContainer /></Suspense>} />
               <Route path="/login" element={<Suspense fallback={<Loader/>}><Login /></Suspense>} />
-              <Route path="/settings" element={<Suspense fallback={<Loader/>}><InDev /></Suspense>} />
+              <Route path="/feedback" element={<Suspense fallback={<Loader/>}><Feedback /></Suspense>} />
               <Route path="/vlog" element={<Suspense fallback={<Loader/>}><InDev /></Suspense>} />
             </Routes>
           </div>
@@ -70,11 +70,11 @@ let AppContainer = connect(mapStateToProps, { initializeApp })(App)
 
 
 const SocialApp = () => {
-  return <BrowserRouter>
+  return <HashRouter basename={process.env.PUBLIC_URL}>
     <Provider store={store}>
       <AppContainer />
     </Provider>
-  </BrowserRouter>
+  </HashRouter>
 }
 
 export default SocialApp;

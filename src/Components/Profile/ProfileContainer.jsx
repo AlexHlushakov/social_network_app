@@ -17,7 +17,7 @@ class MyProfilePage extends React.Component {
 
 
     render() {
-        return <ProfilePage {...this.props} userId={undefined}/>
+            return <ProfilePage {...this.props} userId={undefined}/>
     }
 }
 

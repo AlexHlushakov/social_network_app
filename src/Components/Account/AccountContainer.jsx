@@ -17,7 +17,7 @@ class AccountContainer extends React.Component{
 
     render() {
         if(this.props.isAuth){
-            if(this.props.profile.userId !== this.props.authUserId){
+            if(this.props.profile === null || this.props.profile.userId !== this.props.authUserId){
                 return <RefreshProfile />
             } else{
                 return <Account profile={this.props.profile} updateProfile={this.props.updateProfile}/>

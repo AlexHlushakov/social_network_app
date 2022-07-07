@@ -9,11 +9,11 @@ import SendIcon from '@mui/icons-material/Send';
 const MessageInputForm = (props) => {
     const {handleSubmit, invalid, submitting, pristine} = props;
     let maxLength100 = useMemo(() => maxLength(100),[])
-    let maxRows=2, minRows=2, style={width: 400, resize: "none"};
+    let maxRows=2, minRows=2;
 
     return (
         <form onSubmit={handleSubmit} className={styles.new_message}>
-            <Field className={styles.new_message_input} name="message" component={Textarea} maxRows={maxRows} minRows={minRows} style={style} placeholder="Enter your message" autocomplete="off" validate={[maxLength100]} />
+            <Field className={styles.new_message_input} name="message" component={Textarea} maxRows={maxRows} minRows={minRows} placeholder="Enter your message" autocomplete="off" validate={[maxLength100]} />
             <div>
                 <Button variant="contained" type="submit" size="large" endIcon={<SendIcon />} disabled={invalid || submitting || pristine}>Send</Button>
                 {/*<button className={styles.new_message_btn}  type="submit" disabled={invalid || submitting || pristine}>Send</button>*/}

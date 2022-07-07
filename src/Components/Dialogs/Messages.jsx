@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Dialogs.module.css";
-import MessageInput from "./MessageInput";
 
 
 const Message = (props) => {
@@ -19,9 +18,6 @@ const Messages = (props) => {
                 {props.messages.map(item => {
                     return (<Message message={item.message} />)
                 })}
-            </div>
-            <div className={styles.new_message}>
-                <MessageInput postMessage={props.postNewMessage} />
             </div>
         </div>
 

@@ -18,7 +18,7 @@ const Navbar = () => {
                 <Link to="/users" className={styles.navlink} >Users</Link>
             </div>
             <div>
-                <Link to="/settings" className={styles.navlink} >Settings</Link>
+                <Link to="/feedback" className={styles.navlink} >Feedback</Link>
             </div>
         </nav>
     )
